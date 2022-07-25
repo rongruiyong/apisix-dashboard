@@ -21,7 +21,7 @@ import { SelectLang } from '@@/plugin-locale/SelectLang';
 import { Link, useIntl, history } from 'umi';
 import LoginMethodPassword from '@/pages/User/components/LoginMethodPassword';
 import type { UserModule } from '@/pages/User/typing';
-import logo from '@/assets/logo.svg';
+import logo from '@/assets/network.png';
 import { getUrlQuery } from '@/helpers';
 import Footer from '@/components/Footer';
 import styles from './Login.less';
@@ -93,7 +93,7 @@ const Page: React.FC = () => {
             <GithubOutlined />
           </a>
         </div>
-        <SelectLang />
+        {/* <SelectLang /> */}
       </div>
       <div className={styles.content}>
         <div className={styles.top}>
@@ -103,9 +103,7 @@ const Page: React.FC = () => {
             </Link>
           </div>
           <div className={styles.desc}>
-            Apache APISIX Dashboard
-            <br />
-            Cloud-Native Microservices API Gateway
+            浙江省科技厅数据中台共享网关
           </div>
         </div>
         <div className={styles.main}>
@@ -121,7 +119,7 @@ const Page: React.FC = () => {
           </Button>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

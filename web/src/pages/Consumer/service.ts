@@ -17,7 +17,7 @@
 import { request } from 'umi';
 
 export const fetchList = ({ current = 1, pageSize = 10, ...res }) =>
-  request('/consumers', {
+  request('/apisix/admin/consumers', {
     params: {
       username: res.username,
       page: current,
@@ -29,24 +29,24 @@ export const fetchList = ({ current = 1, pageSize = 10, ...res }) =>
   }));
 
 export const fetchItem = (username: string) =>
-  request<{ data: ConsumerModule.ResEntity }>(`/consumers/${username}`);
+  request<{ data: ConsumerModule.ResEntity }>(`/apisix/admin/consumers/${username}`);
 
 export const create = (data: ConsumerModule.Entity) =>
-  request('/consumers', {
+  request('/apisix/admin/consumers', {
     method: 'PUT',
     data,
   });
 
 export const update = (username: string, data: ConsumerModule.Entity) =>
-  request(`/consumers/${username}`, {
+  request(`/apisix/admin/consumers/${username}`, {
     method: 'PUT',
     data,
   });
 
-export const remove = (username: string) => request(`/consumers/${username}`, { method: 'DELETE' });
+export const remove = (username: string) => request(`/apisix/admin/consumers/${username}`, { method: 'DELETE' });
 
 export const fetchPlugList = () => {
-  return request<Res<PluginComponent.Meta[]>>('/plugins?all=true').then((data) => {
+  return request<Res<PluginComponent.Meta[]>>('/apisix/admin/plugins?all=true').then((data) => {
     return data.data;
   });
 };

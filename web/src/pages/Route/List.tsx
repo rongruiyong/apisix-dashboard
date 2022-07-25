@@ -340,12 +340,32 @@ const Page: React.FC = () => {
       width: 200,
     },
     {
+      title: formatMessage({ id: 'component.global.producer' }),
+      hideInSearch: true,
+      dataIndex: 'producer',
+      width: 150,
+    },
+    {
+      title: formatMessage({ id: 'component.global.callers' }),
+      hideInSearch: true,
+      dataIndex: 'callers',
+      width: 200,
+    },
+    {
+      title: formatMessage({ id: 'component.global.amount' }),
+      hideInSearch: true,
+      width: 120,
+      align: 'center',
+      render: (_, record) => {
+        return <span style={ {color: '#3399ff', cursor: "pointer"} } onClick={() => history.push(`/routes/${record.id}/records`)}>{ record.callNum }</span>
+      },
+    },
+    {
       title: formatMessage({ id: 'page.route.host' }),
       hideInSearch: true,
       width: 224,
       render: (_, record) => {
         const list = record.hosts || (record.host && [record.host]) || [];
-
         return list.map((item) => (
           <Tooltip placement="topLeft" title={item}>
             <Tag key={item} color="geekblue" style={tagStyle}>
@@ -381,6 +401,8 @@ const Page: React.FC = () => {
     {
       title: formatMessage({ id: 'component.global.labels' }),
       dataIndex: 'labels',
+      ellipsis: true,
+      width: 200,
       render: (_, record) => {
         return Object.keys(record.labels || {})
           .filter((item) => item !== 'API_VERSION')

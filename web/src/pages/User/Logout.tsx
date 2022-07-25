@@ -18,7 +18,7 @@ import type React from 'react';
 
 import LoginMethodPassword from '@/pages/User/components/LoginMethodPassword';
 import type { UserModule } from '@/pages/User/typing';
-import { getUrlQuery } from '@/helpers';
+import { getLogoutPath } from '@/helpers';
 
 /**
  * Login Methods List
@@ -35,8 +35,8 @@ const Page: React.FC = () => {
     item.logout();
   });
 
-  const redirect = getUrlQuery('redirect');
-  window.location.href = `/user/login${redirect ? `?redirect=${redirect}` : ''}`;
+  const redirect = getLogoutPath('redirect');
+  window.location.href = `/apisix-ui/user/login${redirect ? `?redirect=${redirect}` : ''}`;
 
   return null;
 };

@@ -17,7 +17,7 @@
 import { request } from 'umi';
 
 export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
-  return request<Res<ResListData<SSLModule.ResponseBody>>>('/ssl', {
+  return request<Res<ResListData<SSLModule.ResponseBody>>>('/apisix/admin/ssl', {
     params: {
       page: current,
       page_size: pageSize,
@@ -32,24 +32,24 @@ export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
 };
 
 export const remove = (id: string) =>
-  request(`/ssl/${id}`, {
+  request(`/apisix/admin/ssl/${id}`, {
     method: 'DELETE',
   });
 
 export const create = (data: SSLModule.SSL) =>
-  request('/ssl', {
+  request('/apisix/admin/ssl', {
     method: 'POST',
     data,
   });
 
 export const verifyKeyPaire = (cert = '', key = ''): Promise<SSLModule.VerifyKeyPaireProps> =>
-  request('/check_ssl_cert', {
+  request('/apisix/admin/check_ssl_cert', {
     method: 'POST',
     data: { cert, key },
   });
 
 export const update = (id: string, data: SSLModule.SSL) =>
-  request(`/ssl/${id}`, {
+  request(`/apisix/admin/ssl/${id}`, {
     method: 'PUT',
     data,
   });

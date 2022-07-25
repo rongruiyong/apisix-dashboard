@@ -29,7 +29,7 @@ export default defineConfig({
     hmr: true,
   },
   locale: {
-    default: 'en-US',
+    default: 'zh-CN',
     antd: true,
     baseNavigator: true,
   },
@@ -41,12 +41,12 @@ export default defineConfig({
   },
   routes,
   layout: {
-    name: 'APISIX Dashboard',
+    name: '浙江省科技厅数据中台共享网关',
     locale: true,
-    logo: '/favicon.png',
+    logo: '/apisix-ui/favicon.png',
   },
-  base: '/',
-  publicPath: '/',
+  base: '/apisix-ui/',
+  publicPath: '/apisix-ui/',
   define: {
     REACT_APP_ENV: REACT_APP_ENV || false,
   },
@@ -59,7 +59,7 @@ export default defineConfig({
   ignoreMomentLocale: true,
   proxy: proxy[REACT_APP_ENV || 'dev'],
   manifest: {
-    basePath: '/',
+    basePath: '/apisix-ui/',
   },
   outputPath: '../output/html',
   extraBabelPlugins: [

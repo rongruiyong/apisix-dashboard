@@ -156,7 +156,7 @@ export default {
 
   'page.route.list.description':
     'Route is the entry point of a request, which defines the matching rules between a client request and a service. A route can be associated with a service (Service), an upstream (Upstream), a service can correspond to a set of routes, and a route can correspond to an upstream object (a set of backend service nodes), so each request matching to a route will be proxied by the gateway to the route-bound upstream service.',
-
+  'page.route.records': 'Access statistics',
   'page.route.configuration.name.rules.required.description': 'Please enter the route name',
   'page.route.configuration.name.placeholder': 'Please enter the route name',
   'page.route.configuration.desc.tooltip': 'Please enter the description of the route',

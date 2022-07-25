@@ -21,7 +21,7 @@ import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import { isPlainObject } from 'lodash';
 
 import RightContent from '@/components/RightContent';
-import Footer from '@/components/Footer';
+// import Footer from '@/components/Footer';
 import { queryCurrent } from '@/services/user';
 import { getMenuData, errorHandler, getUrlQuery } from '@/helpers';
 
@@ -50,7 +50,7 @@ export const layout = ({ initialState }: { initialState: { settings?: LayoutSett
     headerRender: undefined,
     rightContentRender: () => <RightContent />,
     disableContentMargin: false,
-    footerRender: () => <Footer />,
+    // footerRender: () => <Footer />,
     menuHeaderRender: undefined,
     menuDataRender: getMenuData,
     ...initialState?.settings,
@@ -69,7 +69,7 @@ const nullValueFilter = (obj: Record<string, any>) => {
 };
 
 export const request: RequestConfig = {
-  prefix: '/apisix/admin',
+  prefix: '',
   errorHandler,
   credentials: 'same-origin',
   requestInterceptors: [
@@ -97,7 +97,7 @@ export const request: RequestConfig = {
 
       const data = await res.json();
       const { code = -1 } = data as Res<any>;
-      if (code !== 0) {
+      if (code !== 0 && code !== 1000) {
         // eslint-disable-next-line
         return Promise.reject({ response: res, data });
       }

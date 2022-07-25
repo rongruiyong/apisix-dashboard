@@ -152,7 +152,7 @@ export const convertToRequestData = (
 };
 
 export const fetchUpstreamList = () => {
-  return request<Res<ResListData<UpstreamComponent.ResponseData>>>('/upstreams').then(
+  return request<Res<ResListData<UpstreamComponent.ResponseData>>>('/apisix/admin/upstreams').then(
     ({ data }) => ({
       data: data.rows.map((row) => convertToFormData(row)),
       total: data.total_size,

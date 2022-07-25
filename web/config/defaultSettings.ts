@@ -28,12 +28,12 @@ export default {
   menu: {
     locale: true,
   },
-  title: 'APISIX Dashboard',
+  title: '浙江省科技厅数据中台共享网关',
   pwa: false,
   iconfontUrl: '',
   serveUrlMap: {
-    dev: 'http://139.217.190.60',
-    test: 'http://localhost:9000',
+    dev: 'https://dr.kjt.zj.gov.cn:8888/',
+    test: 'https://dr.kjt.zj.gov.cn:8888/',
   },
 } as LayoutSettings & {
   pwa: boolean;

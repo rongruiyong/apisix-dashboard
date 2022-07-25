@@ -53,21 +53,21 @@ export const getMenuData = (): MenuDataItem[] => {
       path: '/consumer/list',
       icon: <IconFont name="iconconsumer" />,
     },
-    {
-      name: 'proto',
-      path: '/proto/list',
-      icon: <FileTextOutlined />,
-    },
+    // {
+    //   name: 'proto',
+    //   path: '/proto/list',
+    //   icon: <FileTextOutlined />,
+    // },
     {
       name: 'plugin',
       path: '/plugin/list',
       icon: <IconFont name="iconplugin" />,
     },
-    {
-      name: 'ssl',
-      path: '/ssl/list',
-      icon: <IconFont name="iconssl" />,
-    },
+    // {
+    //   name: 'ssl',
+    //   path: '/ssl/list',
+    //   icon: <IconFont name="iconssl" />,
+    // },
     {
       name: 'serverinfo',
       path: '/serverinfo',
@@ -123,6 +123,19 @@ export const getUrlQuery: (key: string) => string | false = (key: string) => {
   for (let i = 0; i < vars.length; i += 1) {
     const pair = vars[i].split('=');
     if (pair[0] === key) return pair[1];
+  }
+  return false;
+};
+
+export const getLogoutPath: (key: string) => string | false = (key: string) => {
+  const query = window.location.search.substring(1);
+  const vars = query.split('&');
+
+  for (let i = 0; i < vars.length; i += 1) {
+    const pair = vars[i].split('=');
+    if (pair[0] === key) {
+      return encodeURIComponent(decodeURIComponent(pair[1]).replace('/apisix-ui', ""));
+    }
   }
   return false;
 };

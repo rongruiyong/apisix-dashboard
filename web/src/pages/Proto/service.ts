@@ -17,7 +17,7 @@
 import { request } from 'umi';
 
 export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
-  return request<Res<ResListData<ProtoModule.ResponseBody>>>('/proto', {
+  return request<Res<ResListData<ProtoModule.ResponseBody>>>('/apisix/admin/proto', {
     params: {
       desc: res.desc,
       page: current,
@@ -32,15 +32,15 @@ export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
 };
 
 export const create = (data: ProtoModule.ProtoData) =>
-  request('/proto', {
+  request('/apisix/admin/proto', {
     method: 'POST',
     data,
   });
 
 export const update = (data: ProtoModule.ProtoData) => {
-  request(`/proto/${data.id}`, {
+  request(`/apisix/admin/proto/${data.id}`, {
     method: 'PUT',
     data,
   });
 };
-export const remove = (rid: string) => request(`/proto/${rid}`, { method: 'DELETE' });
+export const remove = (rid: string) => request(`/apisix/admin/proto/${rid}`, { method: 'DELETE' });

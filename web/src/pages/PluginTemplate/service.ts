@@ -21,7 +21,7 @@ import { transformLabelList } from '@/helpers';
 export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
   const { labels = [] } = res;
 
-  return request('/plugin_configs', {
+  return request('/apisix/admin/plugin_configs', {
     params: {
       search: res.desc,
       label: labels.join(','),
@@ -36,22 +36,22 @@ export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
   });
 };
 
-export const remove = (rid: string) => request(`/plugin_configs/${rid}`, { method: 'DELETE' });
+export const remove = (rid: string) => request(`/apisix/admin/plugin_configs/${rid}`, { method: 'DELETE' });
 
 export const fetchItem = (id: string) =>
-  request<{ data: PluginTemplateModule.ResEntity }>(`/plugin_configs/${id}`);
+  request<{ data: PluginTemplateModule.ResEntity }>(`/apisix/admin/plugin_configs/${id}`);
 
 export const create = (data: PluginTemplateModule.Entity) =>
-  request('/plugin_configs', {
+  request('/apisix/admin/plugin_configs', {
     method: 'POST',
     data,
   });
 
 export const update = (id: string, data: PluginTemplateModule.Entity) =>
-  request(`/plugin_configs/${id}`, {
+  request(`/apisix/admin/plugin_configs/${id}`, {
     method: 'PATCH',
     data,
   });
 
 export const fetchLabelList = () =>
-  request('/labels/plugin_config').then(({ data }) => transformLabelList(data.rows) as LabelList);
+  request('/apisix/admin/labels/plugin_config').then(({ data }) => transformLabelList(data.rows) as LabelList);

@@ -29,7 +29,7 @@ const MetaView: React.FC<RouteModule.Step1PassProps> = ({
   form,
   isEdit,
   upstreamForm,
-  onChange = () => {},
+  onChange = () => { },
 }) => {
   const { formatMessage } = useIntl();
   const [visible, setVisible] = useState(false);

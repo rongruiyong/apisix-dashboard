@@ -1,5 +1,6 @@
 /lambda/
 /scripts
+/src
 /config
 .history
 .eslintrc.js

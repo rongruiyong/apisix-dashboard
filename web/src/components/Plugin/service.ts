@@ -30,7 +30,7 @@ export const fetchList = () => {
     return Promise.resolve(cached.list);
   }
 
-  return request<Res<PluginComponent.Meta[]>>('/plugins?all=true').then((data) => {
+  return request<Res<PluginComponent.Meta[]>>('/apisix/admin/plugins?all=true').then((data) => {
     const typedData = data.data.map((item) => ({
       ...item,
       type: PLUGIN_LIST[item.name]?.type || 'other',
@@ -68,7 +68,7 @@ export const fetchSchema = async (
   if (!cachedPluginSchema[schemaType][name]) {
     const queryString = schemaType !== 'route' ? `?schema_type=${schemaType}` : '';
     cachedPluginSchema[schemaType][name] = (
-      await request(`/schema/plugins/${name}${queryString}`)
+      await request(`/apisix/admin/schema/plugins/${name}${queryString}`)
     ).data;
     // for plugins schema returned with properties: [], which will cause parse error
     if (JSON.stringify(cachedPluginSchema[schemaType][name].properties) === '[]') {
@@ -82,7 +82,7 @@ export const fetchSchema = async (
 };
 
 export const fetchPluginTemplateList = () => {
-  return request<Res<ResListData<PluginTemplateModule.ResEntity>>>('/plugin_configs').then(
+  return request<Res<ResListData<PluginTemplateModule.ResEntity>>>('/apisix/admin/plugin_configs').then(
     (data) => {
       return data.data.rows;
     },

@@ -18,7 +18,7 @@ import { request } from 'umi';
 import { transformData } from './transform';
 
 export const fetchList = ({ current = 1, pageSize = 10, ...res }) =>
-  request('/services', {
+  request('/apisix/admin/services', {
     params: {
       name: res.name,
       page: current,
@@ -30,19 +30,19 @@ export const fetchList = ({ current = 1, pageSize = 10, ...res }) =>
   }));
 
 export const create = (data: ServiceModule.Entity) =>
-  request('/services', {
+  request('/apisix/admin/services', {
     method: 'POST',
     data: transformData(data),
   });
 
 export const update = (serviceId: string, data: ServiceModule.Entity) =>
-  request(`/services/${serviceId}`, {
+  request(`/apisix/admin/services/${serviceId}`, {
     method: 'PUT',
     data: transformData(data),
   });
 
 export const remove = (serviceId: string) =>
-  request(`/services/${serviceId}`, { method: 'DELETE' });
+  request(`/apisix/admin/services/${serviceId}`, { method: 'DELETE' });
 
 export const fetchItem = (serviceId: number) =>
-  request(`/services/${serviceId}`).then((data) => data);
+  request(`/apisix/admin/services/${serviceId}`).then((data) => data);

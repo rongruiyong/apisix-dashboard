@@ -19,7 +19,7 @@ import { request } from 'umi';
 import { convertToFormData } from '@/components/Upstream/service';
 
 export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
-  return request<Res<ResListData<UpstreamModule.RequestBody>>>('/upstreams', {
+  return request<Res<ResListData<UpstreamModule.RequestBody>>>('/apisix/admin/upstreams', {
     params: {
       name: res.name,
       page: current,
@@ -32,18 +32,18 @@ export const fetchList = ({ current = 1, pageSize = 10, ...res }) => {
 };
 
 export const fetchOne = (id: string) =>
-  request<Res<any>>(`/upstreams/${id}`).then(({ data }) => convertToFormData(data));
+  request<Res<any>>(`/apisix/admin/upstreams/${id}`).then(({ data }) => convertToFormData(data));
 
 export const create = (data: UpstreamModule.RequestBody) =>
-  request('/upstreams', {
+  request('/apisix/admin/upstreams', {
     method: 'POST',
     data,
   });
 
 export const update = (id: string, data: UpstreamModule.RequestBody) =>
-  request(`/upstreams/${id}`, {
+  request(`/apisix/admin/upstreams/${id}`, {
     method: 'PUT',
     data,
   });
 
-export const remove = (id: string) => request(`/upstreams/${id}`, { method: 'DELETE' });
+export const remove = (id: string) => request(`/apisix/admin/upstreams/${id}`, { method: 'DELETE' });

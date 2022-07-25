@@ -89,7 +89,7 @@ const Page: React.FC<Props> = (props) => {
   };
 
   useEffect(() => {
-    if (props.route.path.indexOf('edit') !== -1 || props.route.path.indexOf('duplicate') !== -1) {
+    if (props.route.path.indexOf('edit') !== -1 || props.route.path.indexOf('duplicate') !== -1 || props.route.path.indexOf('records') !== -1) {
       setupRoute(props.match.params.rid);
     } else {
       onReset();

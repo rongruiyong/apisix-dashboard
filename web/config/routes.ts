@@ -40,6 +40,10 @@ const routes = [
     component: './Route/Create',
   },
   {
+    path: '/routes/:rid/records',
+    component: './Route/Records',
+  },
+  {
     path: '/routes/:rid/duplicate',
     component: './Route/Create',
   },

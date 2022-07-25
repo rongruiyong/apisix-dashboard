@@ -25,5 +25,10 @@ export default {
       target: defaultSettings.serveUrlMap[SERVE_ENV],
       changeOrigin: true,
     },
+    '/science': {
+      // NOTE: This is the manager-api pre-deployed in Azure just for preview, please refer to https://www.yuque.com/umijs/umi/proxy for more info.
+      target: defaultSettings.serveUrlMap[SERVE_ENV],
+      changeOrigin: true,
+    },
   },
 };
