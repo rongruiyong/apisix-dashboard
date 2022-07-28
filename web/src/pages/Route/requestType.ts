@@ -2,6 +2,7 @@
 import { extend } from 'umi-request';
 import { notification } from 'antd';
 import md5 from "js-md5";
+import { history } from 'umi';
 
 const codeMessage: Record<number, string> = {
   200: '服务器成功返回请求的数据。',
@@ -27,11 +28,14 @@ const errorHandler = (error: { response: Response }): Response => {
   if (response && response.status) {
     const errorText = codeMessage[response.status] || response.statusText;
     const { status, url } = response;
-
-    notification.error({
-      message: `请求错误 ${status}: ${url}`,
-      description: errorText,
-    });
+    if (status === 401) {
+      history.replace(`/user/logout?redirect=${encodeURIComponent("/routes/list")}`);
+    } else {
+      notification.error({
+        message: `请求错误 ${status}: ${url}`,
+        description: errorText,
+      });
+    }
   } else if (!response) {
     notification.error({
       description: '您的网络发生异常，无法连接服务器',

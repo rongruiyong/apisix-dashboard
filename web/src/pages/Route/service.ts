@@ -134,7 +134,7 @@ export const checkHostWithSSL = (hosts: string[]) =>
   });
 
 export const fetchLabelList = () =>
-  request('/apisix/admin/labels/route').then(({ data }) => transformLabelList(data.rows) as LabelList);
+  request('/apisix/admin/labels/route').then(({ data }) => transformLabelList(data && data.rows) as LabelList);
 
 export const updateRouteStatus = (rid: string, status: RouteModule.RouteStatus) =>
   request(`/apisix/admin/routes/${rid}`, {
