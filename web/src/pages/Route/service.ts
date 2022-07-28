@@ -14,12 +14,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import { request } from 'umi';
+import request from './requestType';
+// import  {request}  from 'umi';
 import { pickBy, identity, isArguments } from 'lodash';
 
 import { transformStepData, transformRouteData, transformUpstreamNodes } from './transform';
 import { transformLabelList } from '@/helpers';
 import { fetchUpstreamList } from '@/components/Upstream/service';
+
 
 export const create = (data: RouteModule.RequestData, mode?: RouteModule.RequestMode) =>
   request(`/apisix/admin/routes`, {

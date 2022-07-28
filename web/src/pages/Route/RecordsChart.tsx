@@ -38,7 +38,7 @@ const Chart: React.FC = (props) => {
     },
     grid: {
       top: 65,
-      left: 40,
+      left: 65,
       right: 20,
       bottom: 30,
     },
