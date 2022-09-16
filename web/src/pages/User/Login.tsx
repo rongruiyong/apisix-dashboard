@@ -103,7 +103,7 @@ const Page: React.FC = () => {
             </Link>
           </div>
           <div className={styles.desc}>
-            浙江省科技厅数据中台共享网关
+            浙江省科技厅数据共享网关
           </div>
         </div>
         <div className={styles.main}>

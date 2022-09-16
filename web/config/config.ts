@@ -41,7 +41,7 @@ export default defineConfig({
   },
   routes,
   layout: {
-    name: '浙江省科技厅数据中台共享网关',
+    name: '浙江省科技厅数据共享网关',
     locale: true,
     logo: '/apisix-ui/favicon.png',
   },

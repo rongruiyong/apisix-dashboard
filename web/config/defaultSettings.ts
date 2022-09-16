@@ -28,7 +28,7 @@ export default {
   menu: {
     locale: true,
   },
-  title: '浙江省科技厅数据中台共享网关',
+  title: '浙江省科技厅数据共享网关',
   pwa: false,
   iconfontUrl: '',
   serveUrlMap: {
